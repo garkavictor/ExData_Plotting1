@@ -1,9 +1,11 @@
 plot4 <- function() {
+  library(data.table)
+  
   # download
   myUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
   myZip <- "data.zip"
-  download.file(url=myUrl, destfile=myZip)
-  unzip(zipfile=myZip)
+  #download.file(url=myUrl, destfile=myZip)
+  #unzip(zipfile=myZip)
 
   # read and prepare data
   dataFile <- "household_power_consumption.txt"
@@ -18,8 +20,7 @@ plot4 <- function() {
   png("plot4.png")
   par(mfcol = c(2, 2), mar = c(4, 4, 2, 1), oma = c(0, 0, 2, 0))
   with(DT, {
-    hist(Global_active_power, col='red',
-         xlab='', ylab='Global Active Power', main='')
+    plot(Global_active_power, type='l', xlab='', ylab='Global Active Power')
 
     plot(x=datetime, y=Sub_metering_1, type="l", xlab="", ylab="Energy sub metering")
     lines(x=datetime, y=Sub_metering_2, col="red")

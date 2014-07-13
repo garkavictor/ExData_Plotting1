@@ -1,4 +1,6 @@
 plot3 <- function() {
+  library(data.table)
+  
   # download
   myUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
   myZip <- "data.zip"
